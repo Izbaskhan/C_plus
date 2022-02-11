@@ -2,10 +2,21 @@
 //
 
 #include <iostream>
+#include <vector>
+#include <iostream>
+#include <algorithm>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::vector<int> x{ 0,1,2,8,13,5,3 };
+    x[0] = 21;
+    x.push_back(1);
+    std::sort(x.begin(), x.end());
+    std::cout << "Printing " << x.size() << " Fibonacci numbers.\n";
+    for (auto number:x ) std::cout << number << "\n";
+  
+    
+  
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
