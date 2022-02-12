@@ -2,10 +2,21 @@
 //
 
 #include <iostream>
+struct Person {
+    Person() {
+        printf("I;m lived\n");
+    }
+
+    ~Person() {
+        printf("Bye muchho\n");
+    }
+};
 
 int main()
 {
     std::cout << "Hello World!\n";
+    auto person = new Person{};
+    delete person;
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
