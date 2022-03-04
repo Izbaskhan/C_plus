@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-enum operation
+enum class operation
 {
 	add,
 	subtract,
@@ -9,20 +9,20 @@ enum operation
 
 struct calculator
 {
-	 calculator(const operation op) : op_(op)
+	explicit calculator(const operation op) : op_(op)
 	{
 	}
 	int calc(const int a, const int b) const
 	{
 		switch (op_)
 		{
-		case add:
+		case operation::add:
 			return a + b;
-		case subtract:
+		case operation::subtract:
 			return a - b;
-		case multiply:
+		case operation::multiply:
 			return a * b;
-		case divide:
+		case operation::divide:
 			return a / b;
 		
 		}
@@ -41,13 +41,13 @@ int main()
 {
     std::cout << "Hello World!\n";
 	
-    calculator calc{ add };
+    calculator calc{operation::add };
 	std::cout << "add " << calc.calc(45,7) << "\n";
-	calc.set_op(divide);
+	calc.set_op(operation::divide);
 	std::cout << "divide " << calc.calc(45, 7) << "\n";
-	calc.set_op(subtract);
+	calc.set_op(operation::subtract);
 	std::cout << "subtract " << calc.calc(45, 7) << "\n";
-	calc.set_op(multiply);
+	calc.set_op(operation::multiply);
 	std::cout << "multiply " << calc.calc(45, 7) << "\n";
 	return 0;
 }
