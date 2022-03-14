@@ -4,6 +4,9 @@ int main()
 {
     std::cout << "Hello World!\n";
     // Это релиз
-    std::cout << "B\n";
+
     std::cout << "A\n";
+
+    std::cout << "B\n";
+
 }
