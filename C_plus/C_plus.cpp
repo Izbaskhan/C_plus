@@ -11,6 +11,10 @@ struct grocho
 		printf("forgot 0x%x\n", x);
 	}
 };
+void hari_kari() noexcept
+{
+	throw std::runtime_error{ "Goodbye" };
+}
 
 int main()
 {
@@ -19,12 +23,18 @@ int main()
 	{
 		grocho obj{};
 		grocho::forget(15);
+		//hari_kari();
 		grocho::forget(0xFACE);
 		grocho::forget(0xC0FFEE);
 	}
-	catch (const std::exception& e)
+	catch (const std::system_error& ex)
 	{
-		printf("exception: %s\n", e.what());
+		printf("exception: %s\n", ex.what());
+		std::cout << ex.code() << "\n";
+	}
+	catch (...)
+	{
+		printf("panic:");
 	}
 }
 
