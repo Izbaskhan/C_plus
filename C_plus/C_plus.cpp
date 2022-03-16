@@ -1,13 +1,30 @@
 ﻿#include <iostream>
 
+
+struct person
+{
+    person(const person& other) : age(other.age)
+    {
+        strncpy_s(buffer, other.buffer, 15);
+    }
+    person(const int age) : age(age)
+    {
+    }
+
+    int age;
+    char buffer[15]{};
+};
+
+
+
 int main()
 {
     std::cout << "Hello World!\n";
     // Это релиз
-
-    std::cout << "A\n";
-
-    std::cout << "B\n";
-    std::cout << "B1\n";
-    std::cout << "B2\n";
+    // Копирование классов
+    person pr_a{ 15 };
+    const auto pr_b{ pr_a };
+    std::cout << pr_b.age << "\n";
+    std::cout << pr_b.buffer << "\n";
+    
 }
