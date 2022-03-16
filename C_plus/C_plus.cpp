@@ -8,5 +8,6 @@ int main()
     std::cout << "A\n";
 
     std::cout << "B\n";
-
+    std::cout << "B1\n";
+    std::cout << "B2\n";
 }
