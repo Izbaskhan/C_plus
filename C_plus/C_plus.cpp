@@ -15,7 +15,11 @@ struct person
     char buffer[15]{};
 };
 
-
+struct MyStruct
+{
+    MyStruct(const MyStruct&) = delete;
+    int age;
+};
 
 int main()
 {
