@@ -3,7 +3,7 @@
 #include <string>
 #include <stdexcept>
 #include <utility>
-
+#pragma warning(disable : 4996)
 
 struct SimpleString {
     SimpleString(size_t max_size) : max_size{ max_size },
@@ -77,6 +77,12 @@ private:
 
 int main()
 {
-    std::cout << "Hello World!\n";   
-
+   
+    SimpleString a{ 50 };
+    a.append_line("Izbaskan A");
+    a.print("testA1");
+    SimpleString b{ std::move(a) };
+    a.append_line("original");
+    a.print("testA2");
+    b.print("testB1");
 }
